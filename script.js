@@ -14,14 +14,16 @@ function getComputerChoice() {
     return comChoices;
 }
 
-// dapatin pilihan user, belum handle error
-let getHumanChoice = () => prompt('Your Choice: ').toLowerCase();
-
 let humanScore = 0;
 let comScore = 0;
 
+// dapatin pilihan user, belum handle error
+let getHumanChoice = () => prompt(`You: ${humanScore} | Com: ${comScore} \n Your Choice: `).toLowerCase();
+
+
 function playRound (human, com) {
     let result;
+    let next;
     if (human === 'rock') {
         switch (com) {
             case 'rock':
@@ -61,36 +63,47 @@ function playRound (human, com) {
             break;
         }
     }
-
-    // cek score
+    
     if (result === 'win') {
-        humanScore++;
+        ++humanScore;
         console.log(`You ${result}! ${human} beats ${com}`);
+        next = nextRound(`You ${result}! ${human} beats ${com}`);
     }
     else if (result === 'lose') {
-        comScore++;
+        ++comScore;
         console.log(`You ${result}! ${com} beats ${human}`);
+        next = nextRound(`You ${result}! ${com} beats ${human}`);
     }
     else {
         console.log(`You ${result}!`);
+        next = nextRound(`You ${result}!`);
     }
-    console.log(`You: ${humanScore}`, `Com: ${comScore}`)
+    console.log(`You: ${humanScore}`, `Com: ${comScore}`);
+
+    return next;
 }
 
+let nextRound = (result) => confirm(`${result} \n Wanna Continue?`);
+
 function playGame () {
-    while (comScore < 5 || humanScore < 5) {
+    while (comScore < 5 && humanScore < 5) {
         let comChoices = getComputerChoice();
         let humanChoice = getHumanChoice();
-        playRound(humanChoice, comChoices);
-        if (comScore === 5) {
-            console.log("Game over. You Lose!");
-            break;
-        }
-        else if (humanScore === 5) {
-            console.log("Game over. You Win!");
-            break;
-        }
+        let next = playRound(humanChoice, comChoices);
+        if (!next) {
+            alert('Coward~ bye'); 
+            return;
+        } 
     }
+
+    if (comScore === 5) {
+        alert("Game over. You Lose!");
+    }
+    else if (humanScore === 5) {
+        alert("Game over. You Win!");
+    } 
+
+    return;
 }
 
 playGame();
