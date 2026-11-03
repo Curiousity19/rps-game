@@ -106,4 +106,13 @@ function playGame () {
     return;
 }
 
-playGame();
+// playGame();
+
+// start playing
+const choiceBtn = document.querySelectorAll('.choice-btn');
+choiceBtn.forEach(btn => {
+    btn.addEventListener('click', e => {
+        let playerChoice = e.target.textContent.toLowerCase();
+        playRound(playerChoice, getComputerChoice());
+    })
+}) 

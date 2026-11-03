@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 1px solid red;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    align-self: center;
+}
+
+.body {
+    display: flex;
+    flex: 1;
+    width: 100vw;
+}
+
+.body > div {
+    flex: 1;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.choice-btn {
+    width: 50%;
+    height: 10%;
+}
+
+/* mid screen */
+
+div.mid {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+/* top-mid */
+
+.top-mid {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.player-name {
+    text-align: center;
+}
+
+.top-mid > div {
+    flex: 1;
+}
+
+div.vs {
+    flex: 0;
+    align-self: center;
+}
+
+.footer {
+    
+}
