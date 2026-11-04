@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .container {
@@ -33,7 +33,7 @@
     gap: 16px;
 }
 
-.choice-btn {
+.move-btn {
     width: 50%;
     height: 10%;
 }
@@ -54,10 +54,6 @@ div.mid {
     flex: 1;
 }
 
-.player-name {
-    text-align: center;
-}
-
 .top-mid > div {
     flex: 1;
 }
@@ -65,6 +61,30 @@ div.mid {
 div.vs {
     flex: 0;
     align-self: center;
+}
+
+.user, 
+.computer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-name {
+    /* margin-top: auto; */
+    font-size: 56px;
+}
+
+/* hand image */
+.hand {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.result {
+    text-align: center;
+    font-size: 56px;
 }
 
 .footer {

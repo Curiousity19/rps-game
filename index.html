@@ -6,37 +6,41 @@
     <title>Rock Paper Scisors</title>
 
     <script type="module" src="script.js" defer></script>
+    <script type="module" src="script2.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="title">Rock Paper Scissor!</h1>
+            <h1 class="title">Rock Paper Scissors!</h1>
         </div>
         <div class="body">
             <div class="option">
-                <button class="choice-btn">Rock</button>
-                <button class="choice-btn">Paper</button>
-                <button class="choice-btn">Scissor</button>    
+                <button class="move-btn">Rock</button>
+                <button class="move-btn">Paper</button>
+                <button class="move-btn">Scissors</button>    
             </div>
             <div class="mid">
                 <div class="top-mid">
                     <div class="user">
                         <h2 class="player-name">YOU</h2>
+                        <img class="hand user-hand" src="" alt="">
                     </div>
                     <div class="vs">VS</div>
                     <div class="computer">
                         <h2 class="player-name">COM</h2>
+                        <img class="hand com-hand" src="" alt="">
                     </div>
                 </div>
                 <div class="bottom-mid">
-                    <div class="result">
-                        result go here
-                    </div>
+                    <h2 class="result"></h2>
                 </div>
             </div>
             <div class="score-board">
-                <div class="current"></div>
+                <div class="current">
+                    <h2 class="user-pts">You:</h2>
+                    <h2 class="com-pts">Com:</h2>
+                </div>
                 <div class="record"></div>
             </div>
         </div>
