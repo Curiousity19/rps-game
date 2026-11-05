@@ -26,28 +26,57 @@ function playRound (userMove, comMove) {
     let result = Rules[userMove][comMove];
     const resultText = document.querySelector('.result');
     resultText.textContent = `You ${result}!`
+
+    return result;
+}
+
+// update hand image 
+function updateHand(userMove, comMove) {
+    const handImg = {
+        'rock': '/assets/rock.png',
+        'paper': '/assets/paper.png',
+        'scissors': '/assets/scissors.png',
+    }
+    
+    let userHand = document.querySelector('.user-hand');
+    let comHand = document.querySelector('.com-hand');
+    
+    userHand.src = handImg[userMove];
+    comHand.src = handImg[comMove];
+}
+
+// update score
+function updateScore (userPts, comPts) {
+    let showUserPts = document.querySelector('.user-pts');
+    let showComPts = document.querySelector('.com-pts');
+    showUserPts.textContent = userPts;
+    showComPts.textContent = comPts;
 }
 
 // run game
-const moveBtns = document.querySelectorAll('.move-btn');
-moveBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        let userMove = e.target.textContent.toLowerCase();
-        let comMove = getComMove();
-        playRound(userMove, comMove);
-        // hand image
-        const Hand = {
-            'rock': '/assets/rock.png',
-            'paper': '/assets/paper.png',
-            'scissors': '/assets/scissors.png',
-        }
+function runGame () {
+    let userPts = 0;
+    let comPts = 0;
+    
+    const moveBtns = document.querySelectorAll('.move-btn');
+    moveBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            let userMove = e.target.textContent.toLowerCase();
+            let comMove = getComMove();
+            // hand image
+            updateHand(userMove, comMove);
+            
+            let result = playRound(userMove, comMove);
 
-        let userHand = document.querySelector('.user-hand');
-        let comHand = document.querySelector('.com-hand');
-
-        userHand.src = Hand[userMove];
-        comHand.src = Hand[comMove];
-
+            if (result === 'win') {
+                userPts++;
+            } else if (result === 'lose') {
+                comPts++;
+            }
+            updateScore(userPts, comPts);
+        })
     })
-})
 
+}
+
+runGame();

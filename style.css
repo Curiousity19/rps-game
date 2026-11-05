@@ -1,4 +1,5 @@
 * {
+    font-family: "Press Start 2P", system-ui;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,6 +14,16 @@
 
 .header {
     align-self: center;
+}
+
+.header > .title {
+    font-family: "Sixtyfour", sans-serif;
+    font-size: 42px;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 
+        "SCAN" 8;
 }
 
 .body {
@@ -36,6 +47,7 @@
 .move-btn {
     width: 50%;
     height: 10%;
+    
 }
 
 /* mid screen */
@@ -85,6 +97,15 @@ div.vs {
 .result {
     text-align: center;
     font-size: 56px;
+}
+
+/* score board */
+.score-board{
+    text-align: center;
+}
+
+.current > * {
+    margin: 12px 0;
 }
 
 .footer {
